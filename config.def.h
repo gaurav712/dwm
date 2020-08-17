@@ -1,32 +1,29 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int usealtbar          = 1;        /* 1 means use non-dwm status bar */
-static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
-static const char *fonts[]          = { "Fira Code:size=12", "NotoColorEmoji" };
+static const char *fonts[]          = { "Fira Sans:size=12", "NotoColorEmoji" };
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ebdbb2", "#1d2021", "#1d2021" },
-	[SchemeSel]  = { "#1d2021", "#a89984", "#a89984" },
+    /*               fg         bg         border   */
+    [SchemeNorm] = { "#ebdbb2", "#1d2021", "#1d2021" },
+    [SchemeSel]  = { "#1d2021", "#a89984", "#a89984" },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Tor Browser",            NULL,       NULL,          0,             1,         0 },
-	{ "cmus",                   NULL,       NULL,        256,             0,         0 },
-	{ "Godot",                  NULL,       NULL,          0,             1,         0 },
+    /* xprop(1):
+     *  WM_CLASS(STRING) = instance, class
+     *  WM_NAME(STRING) = title
+     */
+    /* class      instance    title       tags mask     isfloating   monitor */
+    { "Tor Browser",            NULL,       NULL,          0,             1,         0 },
+    { "cmus",                   NULL,       NULL,        0,             1,         0 },
+    //{ "Godot",                  NULL,       NULL,          0,             1,         0 },
 };
 
 /* layout(s) */
@@ -55,7 +52,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run" };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[]  = { "firefox", NULL };
 static const char *musiccmd[] = {"st", "-c", "cmus", "-e", "cmus", NULL};
 static const char *shotcmd[] = {"shot", NULL};
@@ -66,9 +63,9 @@ static const char *musictogglecmd[]  = { "cmus-remote", "-u", NULL };
 static const char *musicnextcmd[]  = { "cmus-remote", "-n", NULL };
 static const char *musicprevcmd[]  = { "cmus-remote", "-r", NULL };
 static const char *musicstopcmd[]  = { "cmus-remote", "-s", NULL };
-static const char *volupcmd[] = {"pactl", "set-sink-volume", "0", "+5%", NULL};
-static const char *voldowncmd[] = {"pactl", "set-sink-volume", "0", "-5%", NULL};
-static const char *mutecmd[] = {"pactl", "set-sink-mute", "0", "toggle", NULL};
+static const char *volupcmd[] = {"amixer", "set", "Master", "5%+", NULL};
+static const char *voldowncmd[] = {"amixer", "set", "Master", "5%-", NULL};
+static const char *mutecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 static const char *wificmd[] = {"wifi", NULL};
 
 static Key keys[] = {
@@ -106,20 +103,20 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask,           XK_m,      spawn,          {.v = musiccmd } },
-	{ MODKEY|ControlMask,           XK_f,      spawn,          {.v = firefoxcmd } },
-	{ 0,                            XK_Print,  spawn,          {.v = shotcmd} },
-	{ ShiftMask|ControlMask,        XK_e,      spawn,          {.v = emojicmd} },
-	{ 0,                       	0x1008ff02,      spawn,    {.v = brtupcmd } },
-	{ 0,                       	0x1008ff03,      spawn,    {.v = brtdowncmd } },
-	{ 0,                       	0x1008ff14,      spawn,    {.v = musictogglecmd } },
-	{ 0,                       	0x1008ff17,      spawn,    {.v = musicnextcmd } },
-	{ 0,                       	0x1008ff16,      spawn,    {.v = musicprevcmd } },
-	{ 0,                       	0x1008ff15,      spawn,    {.v = musicstopcmd } },
-	{ 0,                            0x1008ff13,      spawn,    {.v = volupcmd} },
-	{ 0,                            0x1008ff11,      spawn,    {.v = voldowncmd} },
-	{ 0,                            0x1008ff12,      spawn,    {.v = mutecmd} },
-	{ ShiftMask|ControlMask,        XK_w,            spawn,    {.v = wificmd} },
+    { MODKEY|ControlMask,           XK_m,      spawn,          {.v = musiccmd } },
+    { MODKEY|ControlMask,           XK_f,      spawn,          {.v = firefoxcmd } },
+    { 0,                            XK_Print,  spawn,          {.v = shotcmd} },
+    { ShiftMask|ControlMask,        XK_e,      spawn,          {.v = emojicmd} },
+    { 0,                        0x1008ff02,      spawn,    {.v = brtupcmd } },
+    { 0,                        0x1008ff03,      spawn,    {.v = brtdowncmd } },
+    { 0,                        0x1008ff14,      spawn,    {.v = musictogglecmd } },
+    { 0,                        0x1008ff17,      spawn,    {.v = musicnextcmd } },
+    { 0,                        0x1008ff16,      spawn,    {.v = musicprevcmd } },
+    { 0,                        0x1008ff15,      spawn,    {.v = musicstopcmd } },
+    { 0,                            0x1008ff13,      spawn,    {.v = volupcmd} },
+    { 0,                            0x1008ff11,      spawn,    {.v = voldowncmd} },
+    { 0,                            0x1008ff12,      spawn,    {.v = mutecmd} },
+    { ShiftMask|ControlMask,        XK_w,            spawn,    {.v = wificmd} },
 };
 
 /* button definitions */
@@ -137,24 +134,5 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-};
-
-static const char *ipcsockpath = "/tmp/dwm.sock";
-static IPCCommand ipccommands[] = {
-  IPCCOMMAND(  view,                1,      {ARG_TYPE_UINT}   ),
-  IPCCOMMAND(  toggleview,          1,      {ARG_TYPE_UINT}   ),
-  IPCCOMMAND(  tag,                 1,      {ARG_TYPE_UINT}   ),
-  IPCCOMMAND(  toggletag,           1,      {ARG_TYPE_UINT}   ),
-  IPCCOMMAND(  tagmon,              1,      {ARG_TYPE_UINT}   ),
-  IPCCOMMAND(  focusmon,            1,      {ARG_TYPE_SINT}   ),
-  IPCCOMMAND(  focusstack,          1,      {ARG_TYPE_SINT}   ),
-  IPCCOMMAND(  zoom,                1,      {ARG_TYPE_NONE}   ),
-  IPCCOMMAND(  spawn,               1,      {ARG_TYPE_PTR}    ),
-  IPCCOMMAND(  incnmaster,          1,      {ARG_TYPE_SINT}   ),
-  IPCCOMMAND(  killclient,          1,      {ARG_TYPE_SINT}   ),
-  IPCCOMMAND(  togglefloating,      1,      {ARG_TYPE_NONE}   ),
-  IPCCOMMAND(  setmfact,            1,      {ARG_TYPE_FLOAT}  ),
-  IPCCOMMAND(  setlayoutsafe,       1,      {ARG_TYPE_PTR}    ),
-  IPCCOMMAND(  quit,                1,      {ARG_TYPE_NONE}   )
 };
 
