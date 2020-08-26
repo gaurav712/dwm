@@ -5,11 +5,11 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Sans:size=12", "NotoColorEmoji", "feather:size=15" };
+static const char *fonts[]          = { "Linotte Mistu:size=12", "NotoColorEmoji", "feather:size=15" };
 static const char *colors[][3]      = {
     /*               fg         bg         border   */
     [SchemeNorm] = { "#ebdbb2", "#1d2021", "#1d2021" },
-    [SchemeSel]  = { "#1d2021", "#a89984", "#a89984" },
+    [SchemeSel]  = { "#ebdbb2", "#454545", "#454545" },
 };
 
 /* tagging */
@@ -21,9 +21,11 @@ static const Rule rules[] = {
      *  WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    { "Tor Browser",            NULL,       NULL,          0,             1,         0 },
-    { "cmus",                   NULL,       NULL,        0,             1,         0 },
-    //{ "Godot",                  NULL,       NULL,          0,             1,         0 },
+    //{ "Tor Browser",            NULL,       NULL,          0,             1,         0 },
+    //{ "cmus",                   NULL,       NULL,        0,             1,         0 },
+    //{ "Godot",                  "Godot_ProjectList",       NULL,          0,             1,         0 },
+    { "jetbrains-studio",       "sun-awt-X11-XWindowPeer",       NULL,          0,             1,         0 },
+    { "jetbrains-studio",       "sun-awt-X11-XFramePeer",       NULL,          0,             1,         0 },
 };
 
 /* layout(s) */
@@ -54,15 +56,15 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run" };
 static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[]  = { "firefox", NULL };
-static const char *musiccmd[] = {"st", "-c", "cmus", "-e", "cmus", NULL};
+//static const char *musiccmd[] = {"st", "-c", "cmus", "-e", "cmus", NULL};
 static const char *shotcmd[] = {"shot", NULL};
 static const char *emojicmd[] = {"dmenu_emoji", NULL};
 static const char *brtupcmd[]  = { "sudo", "brightness", "inc", "5", NULL };
 static const char *brtdowncmd[]  = { "sudo", "brightness", "dec", "5", NULL };
-static const char *musictogglecmd[]  = { "cmus-remote", "-u", NULL };
-static const char *musicnextcmd[]  = { "cmus-remote", "-n", NULL };
-static const char *musicprevcmd[]  = { "cmus-remote", "-r", NULL };
-static const char *musicstopcmd[]  = { "cmus-remote", "-s", NULL };
+//static const char *musictogglecmd[]  = { "cmus-remote", "-u", NULL };
+//static const char *musicnextcmd[]  = { "cmus-remote", "-n", NULL };
+//static const char *musicprevcmd[]  = { "cmus-remote", "-r", NULL };
+//static const char *musicstopcmd[]  = { "cmus-remote", "-s", NULL };
 static const char *volupcmd[] = {"amixer", "set", "Master", "5%+", NULL};
 static const char *voldowncmd[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mutecmd[] = {"amixer", "set", "Master", "toggle", NULL};
@@ -103,16 +105,16 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { MODKEY|ControlMask,           XK_m,      spawn,          {.v = musiccmd } },
+    //{ MODKEY|ControlMask,           XK_m,      spawn,          {.v = musiccmd } },
     { MODKEY|ControlMask,           XK_f,      spawn,          {.v = firefoxcmd } },
     { 0,                            XK_Print,  spawn,          {.v = shotcmd} },
     { ShiftMask|ControlMask,        XK_e,      spawn,          {.v = emojicmd} },
     { 0,                        0x1008ff02,      spawn,    {.v = brtupcmd } },
     { 0,                        0x1008ff03,      spawn,    {.v = brtdowncmd } },
-    { 0,                        0x1008ff14,      spawn,    {.v = musictogglecmd } },
-    { 0,                        0x1008ff17,      spawn,    {.v = musicnextcmd } },
-    { 0,                        0x1008ff16,      spawn,    {.v = musicprevcmd } },
-    { 0,                        0x1008ff15,      spawn,    {.v = musicstopcmd } },
+    //{ 0,                        0x1008ff14,      spawn,    {.v = musictogglecmd } },
+    //{ 0,                        0x1008ff17,      spawn,    {.v = musicnextcmd } },
+    //{ 0,                        0x1008ff16,      spawn,    {.v = musicprevcmd } },
+    //{ 0,                        0x1008ff15,      spawn,    {.v = musicstopcmd } },
     { 0,                            0x1008ff13,      spawn,    {.v = volupcmd} },
     { 0,                            0x1008ff11,      spawn,    {.v = voldowncmd} },
     { 0,                            0x1008ff12,      spawn,    {.v = mutecmd} },
