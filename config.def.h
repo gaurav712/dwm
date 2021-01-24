@@ -21,8 +21,7 @@ static const Rule rules[] = {
      *  WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    //{ "Tor Browser",            NULL,       NULL,          0,             1,         0 },
-    //{ "cmus",                   NULL,       NULL,        0,             1,         0 },
+    { "Gigswifi",               NULL,       NULL,        0,             1,         0 },
     //{ "Godot",                  "Godot_ProjectList",       NULL,          0,             1,         0 },
     { "jetbrains-studio",       "sun-awt-X11-XWindowPeer",       NULL,          0,             1,         0 },
     { "jetbrains-studio",       "sun-awt-X11-XFramePeer",       NULL,          0,             1,         0 },
@@ -69,7 +68,7 @@ static const char *volupcmd[] = {"amixer", "set", "Master", "5%+", NULL};
 static const char *voldowncmd[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mutecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 //static const char *wificmd[] = {"wifi", NULL};
-static const char *wificmd[] = {"/home/gaurav/GiGS_wlan/gigswifi.py", NULL};
+static const char *wificmd[] = {"/home/gaurav/GiGS_wlan/gigswifi", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
