@@ -70,7 +70,6 @@ static const char *voldowncmd[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mutecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 //static const char *wificmd[] = {"wifi", NULL};
 static const char *wificmd[] = {"/home/gaurav/GiGS_wlan/gigswifi.py", NULL};
-static const char *editorcmd[] = {"alacritty", "-e", "nvim", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -121,7 +120,6 @@ static Key keys[] = {
         { 0,                            0x1008ff11,      spawn,    {.v = voldowncmd} },
         { 0,                            0x1008ff12,      spawn,    {.v = mutecmd} },
         { ShiftMask|ControlMask,        XK_w,            spawn,    {.v = wificmd} },
-        { MODKEY|ShiftMask,             XK_v,      spawn,          {.v = editorcmd } },
 };
 
 /* button definitions */
