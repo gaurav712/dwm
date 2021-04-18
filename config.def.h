@@ -21,7 +21,7 @@ static const Rule rules[] = {
      *  WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    { "Gigswifi",               NULL,       NULL,        0,             1,         0 },
+    //{ "Gigswifi",               NULL,       NULL,        0,             1,         0 },
     //{ "Godot",                  "Godot_ProjectList",       NULL,          0,             1,         0 },
     { "jetbrains-studio",       "sun-awt-X11-XWindowPeer",       NULL,          0,             1,         0 },
     { "jetbrains-studio",       "sun-awt-X11-XFramePeer",       NULL,          0,             1,         0 },
@@ -58,8 +58,8 @@ static const char *firefoxcmd[]  = { "firefox", NULL };
 //static const char *musiccmd[] = {"st", "-c", "cmus", "-e", "cmus", NULL};
 static const char *shotcmd[] = {"shot", NULL};
 static const char *emojicmd[] = {"dmenu_emoji", NULL};
-static const char *brtupcmd[]  = { "sudo", "brightness", "inc", "5", NULL };
-static const char *brtdowncmd[]  = { "sudo", "brightness", "dec", "5", NULL };
+static const char *brtupcmd[]  = { "sudo", "brightness", "inc", "10", NULL };
+static const char *brtdowncmd[]  = { "sudo", "brightness", "dec", "10", NULL };
 //static const char *musictogglecmd[]  = { "cmus-remote", "-u", NULL };
 //static const char *musicnextcmd[]  = { "cmus-remote", "-n", NULL };
 //static const char *musicprevcmd[]  = { "cmus-remote", "-r", NULL };
@@ -68,7 +68,7 @@ static const char *volupcmd[] = {"amixer", "set", "Master", "5%+", NULL};
 static const char *voldowncmd[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mutecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 //static const char *wificmd[] = {"wifi", NULL};
-static const char *wificmd[] = {"/home/gaurav/GiGS_wlan/gigswifi", NULL};
+//static const char *wificmd[] = {"wpa_gui", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -118,7 +118,7 @@ static Key keys[] = {
         { 0,                            0x1008ff13,      spawn,    {.v = volupcmd} },
         { 0,                            0x1008ff11,      spawn,    {.v = voldowncmd} },
         { 0,                            0x1008ff12,      spawn,    {.v = mutecmd} },
-        { ShiftMask|ControlMask,        XK_w,            spawn,    {.v = wificmd} },
+        //{ ShiftMask|ControlMask,        XK_w,            spawn,    {.v = wificmd} },
 };
 
 /* button definitions */
