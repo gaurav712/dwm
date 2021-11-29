@@ -14,7 +14,7 @@ static const char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "龎", ""};
+static const char *tags[] = {"", "", "", "龎", "ﮭ", "", "", "羽", ""};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -22,9 +22,13 @@ static const Rule rules[] = {
      *  WM_NAME(STRING) = title
      */
     /* class      instance    title       tags mask     isfloating   monitor */
-    //{ "Gigswifi",               NULL,       NULL,        0,             1, 0
-    //}, { "Godot",                  "Godot_ProjectList",       NULL, 0, 1, 0 },
-    {"YouTube Music", NULL, NULL, 0, 1, 0},
+    //{ "Gigswifi",               NULL,       NULL,        0,             1, 0},
+    {"YouTube Music", NULL, NULL, 1 << 8, 1, 0},
+    {"Brave-browser", NULL, NULL, 1 << 2, 0, 0},
+    {"Zathura", NULL, NULL, 1 << 3, 0, 0},
+    {"scrcpy", NULL, NULL, ~0, 1, 0},
+    {"Godot", "Godot_ProjectList", NULL, 1 << 4, 1, 0},
+    {"Godot", NULL, NULL, 1 << 4, 1, 0},
     {"jetbrains-studio", "sun-awt-X11-XWindowPeer", NULL, 0, 1, 0},
     {"jetbrains-studio", "sun-awt-X11-XFramePeer", NULL, 0, 1, 0},
 };
