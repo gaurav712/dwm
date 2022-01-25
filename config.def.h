@@ -14,7 +14,7 @@ static const char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "龎", "ﮭ", "", "", "羽", ""};
+static const char *tags[] = {"", "", "", "龎", "ﮭ", "", "", "羽", ""};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -29,6 +29,7 @@ static const Rule rules[] = {
     {"scrcpy", NULL, NULL, ~0, 1, 0},
     {"Godot", "Godot_ProjectList", NULL, 1 << 4, 1, 0},
     {"Godot", NULL, NULL, 1 << 4, 1, 0},
+    {"Qemu-system-x86_64", NULL, NULL, 1 << 5, 1, 0},
     {"jetbrains-studio", "sun-awt-X11-XWindowPeer", NULL, 0, 1, 0},
     {"jetbrains-studio", "sun-awt-X11-XFramePeer", NULL, 0, 1, 0},
 };
@@ -66,8 +67,8 @@ static char dmenumon[2] =
 static const char *dmenucmd[] = {"dmenu_run"};
 static const char *termcmd[] = {"st", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = {
-    "st", "-t", scratchpadname, "-g", "120x34", "nvim", NULL};
+static const char *scratchpadcmd[] = {"st", "-t",     scratchpadname,
+                                      "-g", "120x34", NULL};
 static const char *firefoxcmd[] = {"firefox", NULL};
 // static const char *musiccmd[] = {"st", "-c", "cmus", "-e", "cmus", NULL};
 static const char *shotcmd[] = {"shot", NULL};
@@ -83,6 +84,7 @@ static const char *voldowncmd[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mutecmd[] = {"amixer", "set", "Master", "toggle", NULL};
 // static const char *wificmd[] = {"wifi", NULL};
 // static const char *wificmd[] = {"wpa_gui", NULL};
+static const char *suspendcmd[] = {"sudo", "mem_suspend", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -128,6 +130,7 @@ static Key keys[] = {
     {0, 0x1008ff13, spawn, {.v = volupcmd}},
     {0, 0x1008ff11, spawn, {.v = voldowncmd}},
     {0, 0x1008ff12, spawn, {.v = mutecmd}},
+    {0, 0x1008ff2f, spawn, {.v = suspendcmd}},
     //{ ShiftMask|ControlMask,        XK_w,            spawn,    {.v = wificmd}
     //},
 };
