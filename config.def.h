@@ -23,15 +23,16 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     //{ "Gigswifi",               NULL,       NULL,        0,             1, 0},
-    {"YouTube Music", NULL, NULL, 1 << 8, 1, 0},
-    {"Brave-browser", NULL, NULL, 1 << 2, 0, 0},
+    //{"YouTube Music", NULL, NULL, 1 << 8, 1, 0},
+    //{"Brave-browser", NULL, NULL, 1 << 2, 0, 0},
+    {"firefox", NULL, NULL, 1 << 2, 0, 0},
     {"Zathura", NULL, NULL, 1 << 3, 0, 0},
     {"scrcpy", NULL, NULL, ~0, 1, 0},
     {"Godot", "Godot_ProjectList", NULL, 1 << 4, 1, 0},
     {"Godot", NULL, NULL, 1 << 4, 1, 0},
-    {"Qemu-system-x86_64", NULL, NULL, 1 << 5, 1, 0},
-    {"jetbrains-studio", "sun-awt-X11-XWindowPeer", NULL, 0, 1, 0},
-    {"jetbrains-studio", "sun-awt-X11-XFramePeer", NULL, 0, 1, 0},
+    //{"Qemu-system-x86_64", NULL, NULL, 1 << 5, 1, 0},
+    //{"jetbrains-studio", "sun-awt-X11-XWindowPeer", NULL, 0, 1, 0},
+    //{"jetbrains-studio", "sun-awt-X11-XFramePeer", NULL, 0, 1, 0},
 };
 
 /* layout(s) */
