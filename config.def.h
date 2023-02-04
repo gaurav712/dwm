@@ -5,8 +5,7 @@ static const unsigned int borderpx = 1; /* border pixel of windows */
 static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const char *fonts[] = {"Fira Sans:size=12",
-                              "Fura Code Nerd Font:size=12"};
+static const char *fonts[] = {"FiraCode Nerd Font:size=11"};
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {"#ebdbb2", "#1d2021", "#1d2021"},
@@ -14,7 +13,7 @@ static const char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = {"", "", "", "龎", "ﮭ", "", "", "羽", ""};
+static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -66,7 +65,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"dmenu_run"};
-static const char *termcmd[] = {"st", "-e", "tmux", NULL};
+static const char *termcmd[] = {"alacritty", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"st",     "-t", scratchpadname, "-g",
                                       "120x34", "-e", "tmux",         NULL};
