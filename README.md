@@ -1,3 +1,5 @@
+> **Note:** This project is moved to Codeberg: https://codeberg.org/gaurav712/dwm
+
 # dwm - dynamic window manager
 
 dwm is an extremely fast, small, and dynamic window manager for X.
